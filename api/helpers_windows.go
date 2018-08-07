@@ -122,6 +122,7 @@ func (st *DCOSTools) GetUnitProperties(pname string) (map[string]interface{}, er
 	result["LoadState"] = string(status.State)
 	result["SubState"] = string(status.State)
 	result["Description"] = config.Description
+	result["PrettyName"] = config.DisplayName
 
 	logrus.Debugf("GetUnitProperties for service: result= %v", pname, result)
 	return result, nil
