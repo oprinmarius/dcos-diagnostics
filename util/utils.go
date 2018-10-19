@@ -1,6 +1,7 @@
 package util
 
 import (
+	"fmt"
 	"net/http"
 	netUrl "net/url"
 	"strings"
@@ -12,10 +13,12 @@ import (
 func UseTLSScheme(url string, use bool) (string, error) {
 	if use {
 		urlObject, err := netUrl.Parse(url)
+		fmt.Println("original url is -> " + url + " <-")
 		if err != nil {
 			return "", err
 		}
 		urlObject.Scheme = "https"
+		fmt.Println("url Object string is -> " + urlObject.String() + " <-")
 		return urlObject.String(), nil
 	}
 	return url, nil
